@@ -11,7 +11,7 @@ repositories {
 }
 
 publishing {
-    repositorties {
+    repositories {
     maven {
         name = 'GitHubPackages'
         url = 'https://maven.pkg.github.com/qubic/java-archiver-proto'
