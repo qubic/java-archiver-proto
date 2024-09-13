@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'org.qubic.archiver'
+version = 'dev-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    maven {
+        name = 'GitHubPackages'
+        url = 'https://maven.pkg.github.com/qubic/java-archiver-proto'
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.protobuf:protobuf-java:3.15.8'
+    implementation 'com.google.protobuf:protobuf-java-util:3.15.8'
+    implementation 'com.google.api.grpc:proto-google-common-protos:2.44.0'
+
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
