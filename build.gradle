@@ -11,6 +11,7 @@ repositories {
 }
 
 publishing {
+    repositorties {
     maven {
         name = 'GitHubPackages'
         url = 'https://maven.pkg.github.com/qubic/java-archiver-proto'
@@ -19,6 +20,7 @@ publishing {
             password = System.getenv("GITHUB_TOKEN")
 
         }
+    }
     }
 }
 
